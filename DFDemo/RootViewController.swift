@@ -52,16 +52,16 @@ class RootViewController : UITableViewController {
         super.loadView()
         self.title = "Mobile SDK Sample App"
         
-//        if let syncManager = syncManager {
-//            syncManager.reSync(named: "syncDownUsers") { (syncState) in
-//                // TBD
-//                if (syncState.isDone()) {
-//                    self.loadFromStore()
-//                }
-//            }
-//        }
-//
-         self.loadFromStore()
+        if let syncManager = syncManager {
+            syncManager.reSync(named: "syncDownUsers") { (syncState) in
+                // TBD
+                if (syncState.isDone()) {
+                    self.loadFromStore()
+                }
+            }
+       }
+
+       self.loadFromStore()
         
     }
     
